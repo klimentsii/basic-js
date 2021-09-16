@@ -1,16 +1,16 @@
 import { NotImplementedError } from '../extensions/index.js';
 
 export default function transform(arr) {
-  if (!(arr instanceof Array)) {
-    throw new Error(`'arr' parameter must be an instance of the Array!`);
-  }
-  if(arr[0] == "--discard-prev" || arr[0] == "--double-prev" || arr[arr.length - 1] == "--discard-next" || arr[arr.length - 1] == "--double-next") {
-    throw new Error(`'arr' parameter must be an instance of the Array!`);
-  }
-
-  let newarr = [];
-
   if(Array.isArray(arr) == true) {
+    if (!(arr instanceof Array)) {
+      throw new Error(`'arr' parameter must be an instance of the Array!`);
+    }
+    if(arr[0] == "--discard-prev" || arr[0] == "--double-prev" || arr[arr.length - 1] == "--discard-next" || arr[arr.length - 1] == "--double-next") {
+      throw new Error(`'arr' parameter must be an instance of the Array!`);
+    }
+
+    let newarr = [];
+
     for(let i = 0; i < arr.length; i++) {
       if(typeof(arr[i]) == "string" ) {
         if(arr[i] == "--discard-next")
@@ -29,6 +29,10 @@ export default function transform(arr) {
         }
       }
     } 
-  }
+    
   return (newarr.filter(n => typeof(n) == "number"));
+  } else {
+    throw new Error(`'arr' parameter must be an instance of the Array!`);
+  }
 }
+
