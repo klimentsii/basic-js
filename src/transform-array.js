@@ -1,11 +1,10 @@
 import { NotImplementedError } from '../extensions/index.js';
 
 export default function transform(arr) {
-  let newarr = [];
-
   if (!(arr instanceof Array)) {
-      throw new Error(`'arr' parameter must be an instance of the Array!`);
+      throw new Error('\'arr\' parameter must be an instance of the Array!');
   }
+  let newarr = [];
 
   for(let i = 0; i < arr.length; i++) {
     if(typeof(arr[i]) == "string") {
