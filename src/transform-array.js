@@ -25,6 +25,7 @@ export default function transform(arr) {
       }
     };
   }
+  return newArr.filter(e => e !== undefined);
 }
 
 
