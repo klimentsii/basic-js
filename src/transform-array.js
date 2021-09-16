@@ -25,7 +25,6 @@ export default function transform(arr) {
         newarr[i] = arr[i];
       }
     }
-  } 
-}
+  }
   return (newarr.filter(n => typeof(n) == "number"));
 }
