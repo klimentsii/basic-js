@@ -4,7 +4,7 @@ export default function transform(arr) {
   if (!(arr instanceof Array)) {
     throw new Error('\'arr\' parameter must be an instance of the Array!');
   }
-  if(arr[0] == "--discard-prev" || arr[0] == "--double-prev" || arr[arr.length - 1] == "--discard-prev" || arr[arr.length - 1] == "--double-prev") {
+  if(arr[0] == "--discard-prev" || arr[0] == "--double-prev" || arr[arr.length - 1] == "--discard-next" || arr[arr.length - 1] == "--double-next") {
     throw new Error('\'arr\' parameter must be an instance of the Array!');
   }
 
