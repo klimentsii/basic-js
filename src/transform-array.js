@@ -2,12 +2,16 @@ import { NotImplementedError } from '../extensions/index.js';
 
 export default function transform(arr) {
   if (!(arr instanceof Array)) {
-      throw new Error('\'arr\' parameter must be an instance of the Array!');
+    throw new Error('\'arr\' parameter must be an instance of the Array!');
   }
+  if(arr[0] == "--discard-prev" || arr[0] == "--double-prev" || arr[arr.length - 1] == "--discard-prev" || arr[arr.length - 1] == "--double-prev") {
+    throw new Error('\'arr\' parameter must be an instance of the Array!');
+  }
+
   let newarr = [];
 
   for(let i = 0; i < arr.length; i++) {
-    if(typeof(arr[i]) == "string") {
+    if(typeof(arr[i]) == "string" ) {
       if(arr[i] == "--discard-next")
         newarr[i] = "", newarr[i + 1] = "", arr[i+1] = "";
       if(arr[i] == "--discard-prev") 
