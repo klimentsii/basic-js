@@ -26,6 +26,6 @@ export default {
                 return this;
             },
             finishChain() {
-                return (`( ${ this.str.split('.').join(' )~~( ') } )`);
+                return (`( ${ this.str.join(' )~~( ') } )`);
             }
 };
