@@ -1,6 +1,6 @@
 import { NotImplementedError } from '../extensions/index.js';
 
-export default{
+export default {
             str: '',
 
             getLength() {
@@ -11,7 +11,7 @@ export default{
                     this.str += value;
                 else
                     this.str += '.' + value;
-                return this.str;
+                return this;
             },
             removeLink(position) {
                 if(this.str != null || this.str != '') {
@@ -19,13 +19,13 @@ export default{
                     this.str.splice(position, 1);
                     this.str = this.str.join('.');
                 }
-                return this.str;
+                return this;
             },
             reverseChain() {
                 this.str = this.str.split(".").reverse().join(".");
-                return this.str;
+                return this;
             },
             finishChain() {
-                return `( ${ this.str.split('.').join(' )~~( ') } )`;
+                return (`( ${ this.str.split('.').join(' )~~( ') } )`);
             }
 };
