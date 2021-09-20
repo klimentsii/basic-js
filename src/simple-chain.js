@@ -7,7 +7,7 @@ export default {
                 return this.str.length;
             },
             addLink(value) {
-                this.str.push(value);
+                this.str.push(`( ${value} )`);
                 return this;
             },
             removeLink(position) {
@@ -26,7 +26,7 @@ export default {
                 return this;
             },
             finishChain() {
-                let result = `( ${this.str.join(" )~~( ")} )`;
+                let result = this.str.join("~~");
                 this.str = [];
                 return result;
             }
