@@ -11,7 +11,7 @@ export default let chainMaker = {
                     this.str += value;
                 else
                     this.str += '.' + value;
-                return this;
+                return this.str;
             },
             removeLink(position) {
                 if(this.str != null || this.str != '') {
@@ -19,11 +19,11 @@ export default let chainMaker = {
                     this.str.splice(position, 1);
                     this.str = this.str.join('.');
                 }
-                return this;
+                return this.str;
             },
             reverseChain() {
                 this.str = this.str.split(".").reverse().join(".");
-                return this;
+                return this.str;
             },
             finishChain() {
                 return '(' + this.str.split('.').join(')~~(') + ')';
