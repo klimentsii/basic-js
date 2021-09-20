@@ -14,7 +14,10 @@ export default {
                 return this;
             },
             removeLink(position) {
-                if(this.str != null || this.str != '') {
+                if(typeof(position) != 'number' || isInteger(position) != true) {
+                    this.str = '';
+                    throw new Error("You can't remove incorrect link!");
+                } else {
                     this.str = this.str.split('.');
                     this.str.splice(position, 1);
                     this.str = this.str.join('.');
