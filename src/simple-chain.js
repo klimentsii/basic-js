@@ -14,7 +14,7 @@ export default {
                 return this;
             },
             removeLink(position) {
-                if(typeof(position) != 'number' || isInteger(position) != true || position < 1 || position > this.str.split('.').length ) {
+                if(typeof(position) != 'number' || position < 1 || position > this.str.split('.').length ) {
                     this.str = '';
                     throw new Error("You can't remove incorrect link!");
                 } else {
