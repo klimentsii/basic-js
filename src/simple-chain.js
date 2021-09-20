@@ -14,7 +14,7 @@ export default {
                 return this;
             },
             removeLink(position) {
-                if(typeof(position) != 'number' || isInteger(position) != true) {
+                if(typeof(position) != 'number' || isInteger(position) != true || position < 1 || position > this.str.split('.').length ) {
                     this.str = '';
                     throw new Error("You can't remove incorrect link!");
                 } else {
@@ -25,7 +25,9 @@ export default {
                 return this;
             },
             reverseChain() {
-                this.str = this.str.split(".").reverse().join(".");
+                if (this.str.split('.').length > 1) {
+                    this.str = this.str.split(".").reverse().join(".");
+                }
                 return this;
             },
             finishChain() {
