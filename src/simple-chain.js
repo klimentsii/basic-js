@@ -26,6 +26,6 @@ export default{
                 return this.str;
             },
             finishChain() {
-                return '( ' + this.str.split('.').join(' )~~( ') + ' )';
+                return '(ss ' + this.str.split('.').join(' )~~( ') + ' )';
             }
 };
