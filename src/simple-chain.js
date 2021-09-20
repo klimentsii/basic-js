@@ -20,14 +20,14 @@ export default {
                 return this;
             },
             reverseChain() {
-                if (this.str.getLength() > 1) {
+                if (this.getLength() > 1) {
                     this.str.reverse();
                 }
                 return this;
             },
             finishChain() {
-                let result = this.str.join("~~");
+                let arr = this.str.join("~~");
                 this.str = [];
-                return result;
+                return arr;
             }
 };
