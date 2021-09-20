@@ -1,6 +1,6 @@
 import { NotImplementedError } from '../extensions/index.js';
 
-export default let chainMaker = {
+export default{
             str: '',
 
             getLength() {
