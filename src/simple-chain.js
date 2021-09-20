@@ -19,7 +19,7 @@ export default {
                     throw new Error("You can't remove incorrect link!");
                 } else {
                     this.str = this.str.split('.');
-                    this.str.splice(position, 1);
+                    this.str.splice(position - 1, 1);
                     this.str = this.str.join('.');
                 }
                 return this;
