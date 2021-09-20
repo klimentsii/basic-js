@@ -1,32 +1,27 @@
 import { NotImplementedError } from '../extensions/index.js';
 
 export default {
-            str: '',
+            str: [],
 
             getLength() {
-                return this.str.split('.').length;
+                return this.str.length;
             },
             addLink(value) {
-                if(this.str === '')
-                    this.str += value;
-                else
-                    this.str += '.' + value;
+                this.str.push(value);
                 return this;
             },
             removeLink(position) {
-                if(typeof(position) != 'number' || position < 1 || position > this.str.split('.').length ) {
-                    this.str = '';
+                if(typeof(position) != 'number' || position < 1 || position > this.str.length ) {
+                    this.str = [];
                     throw new Error("You can't remove incorrect link!");
                 } else {
-                    this.str = this.str.split('.');
                     this.str.splice(position - 1, 1);
-                    this.str = this.str.join('.');
                 }
                 return this;
             },
             reverseChain() {
-                if (this.str.split('.').length > 1) {
-                    this.str = this.str.split(".").reverse().join(".");
+                if (this.str.length > 1) {
+                    this.str = this.str.reverse();
                 }
                 return this;
             },
