@@ -18,12 +18,14 @@ import { NotImplementedError } from '../extensions/index.js';
 export default function repeater(str, options) {
             str += '';
 
-            if(options.addition === false)
-                options.addition = 'false';
-            if(options.addition === null)
-                options.addition = 'null';
-            if(options.addition === 0)
-                options.addition = '0';
+            
+            if(options.addition == false)
+                options.addition = '';
+            if(options.addition == null)
+                options.addition = '';
+            if(options.addition == 0)
+                options.addition = '';
+                
 
             if(typeof(str) != 'string') 
                 str = String(str);
@@ -36,9 +38,9 @@ export default function repeater(str, options) {
             if('additionSeparator' in options == false) 
                 options.additionSeparator = '|';
 
-            if(options.hasOwnProperty('addition') == false) 
+            if('addition' in options == false) 
                 options.addition = '';
-            if(options.hasOwnProperty('additionRepeatTimes') == false) 
+            if('additionRepeatTimes' in options == false) 
                 options.additionRepeatTimes = 1;
 
             for(let i = 0; i < options.additionRepeatTimes; i++) {
