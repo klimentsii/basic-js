@@ -17,26 +17,32 @@ import { NotImplementedError } from '../extensions/index.js';
  */
 export default function repeater(str, options) {
             str += '';
-            
-            if(typeof(str) != 'string') 
-                str = String(str);
-            if(typeof(options.addition) != 'string') 
-                options.addition = String(options.addition);
 
-            if('separator' in options == false) 
+            if(options.addition === false)
+                options.addition = 'false';
+            if(options.addition === null)
+                options.addition = 'null';
+            if(options.addition === 0)
+                options.addition = '0';
+
+            if(typeof(str) !== 'string') 
+                str = String(str);
+            if(typeof(options.addition) !== 'string') 
+                options.addition = String(options.addition);
+                
+
+            if('separator' in options === false) 
                 options.separator = '+'; 
-            if('additionSeparator' in options == false) 
+            if('additionSeparator' in options === false) 
                 options.additionSeparator = '|';
 
-            if(options.hasOwnProperty('addition') == false) 
+            if(options.hasOwnProperty('addition') === false) 
                 options.addition = '';
-            if(options.hasOwnProperty('additionRepeatTimes') == false) 
-                options.additionRepeatTimes = '';
+            if(options.hasOwnProperty('additionRepeatTimes') === false) 
+                options.additionRepeatTimes = 1;
 
             for(let i = 0; i < options.additionRepeatTimes; i++) {
-                if(options.additionSeparator ==  '')
-                    options.additionSeparator = '|';
-                if(i == options.additionRepeatTimes - 1) {
+                if(i === options.additionRepeatTimes - 1) {
                     str += options.addition;
                 } else {
                     str += options.addition + options.additionSeparator;
@@ -51,5 +57,5 @@ export default function repeater(str, options) {
                     str += options.separator + str2;
                 }
             }
-            return str;
+            console.log(str);
         }
